@@ -12,6 +12,7 @@ const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const Accepted = lazy(() => import('../pages/Accepted'));
 const ReUpload = lazy(() => import('../pages/ReUpload'));
 const Pending = lazy(() => import('../pages/Pending'));
+const ResidenceDetails = lazy(() => import('../pages/ResidenceDetails'));
 
 const coreRoutes = [
   {
@@ -73,6 +74,11 @@ const coreRoutes = [
     path: '/pending',
     title: 'Pending Residence',
     component: Pending,
+  },
+  {
+    path: '/residence/:id',
+    title: 'Residence Details',
+    component: ResidenceDetails,
   },
 ];
 
