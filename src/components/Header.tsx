@@ -56,7 +56,7 @@ const Header = (props: {
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
+          <Link className="block flex-shrink-0 lg:hidden" to="/residence">
             <img className='w-[35px] h-[35px]' src='https://i.ibb.co/znBXwxd/Logo-2.png' alt="Logo" />
           </Link>
         </div>

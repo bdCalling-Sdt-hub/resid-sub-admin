@@ -19,7 +19,7 @@ const Signin: React.FC = () => {
           localStorage.setItem('yourInfo', JSON.stringify(res.data.data.attributes));
           localStorage.setItem("token", res.data.data.token);
           toast.success(res.data.message);
-          navigate('/');
+          navigate('/residence');
         } else {
           toast.error('You are not admin');
         }

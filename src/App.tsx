@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/auth/signin" element={<Signin />} />
         <Route element={<DefaultLayout />}>
-          <Route index element={<PrivateRoute> <Residence /></PrivateRoute>} />
+          <Route index path='residence' element={<PrivateRoute> <Residence /></PrivateRoute>} />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
             return (
