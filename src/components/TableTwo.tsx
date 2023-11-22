@@ -59,7 +59,7 @@ const TableTwo = () => {
             </div>
           </div>
           <div className="col-span-3 hidden items-center sm:flex">
-            <p className={`text-sm ${item.acceptanceStatus === "pending" && 'bg-meta-6'} ${item.acceptanceStatus === "accepted" && 'bg-success'} ${item.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3 text-white`}>{
+            <p className={`text-sm text-black ${item.acceptanceStatus === "pending" && 'bg-meta-6'} ${item.acceptanceStatus === "accepted" && 'bg-success'} ${item.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3  dark:text-white`}>{
               item.acceptanceStatus === "pending" ? "Pending" :
                 item.acceptanceStatus === "accepted" ? "Accepted" :
                   item.acceptanceStatus === "blocked" ? "Blocked" : <></>
