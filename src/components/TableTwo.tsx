@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import baseAxios from '../../Config';
 import { useNavigate } from 'react-router-dom';
-const TableTwo = ({type,title}:any) => {
+const TableTwo = ({ type, title }: any) => {
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>([]);
   let token = localStorage.getItem("token");
@@ -20,8 +20,14 @@ const TableTwo = ({type,title}:any) => {
       .then((res) => {
         setData(res.data.data.attributes.residences.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
+        if (
+          "You are not authorised to sign in now" === error.response.data.message || "Error authorization" === error.response.data.message
+        ) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("yourInfo");
+        }
       })
   }, []);
 

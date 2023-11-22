@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import baseAxios from '../../Config';
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function ResidenceDetails() {
+    const navigate = useNavigate();
     let { id } = useParams();
 
     const [data, setData] = useState<any>();
@@ -24,11 +27,72 @@ function ResidenceDetails() {
         )
             .then((res) => {
                 setData(res.data.data.attributes.residences);
+
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
+                if (
+                    "You are not authorised to sign in now" === error.response.data.message || "Error authorization" === error.response.data.message
+                ) {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("yourInfo");
+                }
+
             })
     }, []);
+
+    const handleAccept = () => {
+        baseAxios.put(`/api/residences/${id}`, { acceptanceStatus: "accepted" },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${token}`,
+                },
+            }
+        )
+            .then((res) => {
+                navigate(`/residence`)
+                toast.success("Accepted successfully");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.message);
+                console.log(error);
+                if (
+                    "You are not authorised to sign in now" === error.response.data.message || "Error authorization" === error.response.data.message
+                ) {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("yourInfo");
+                }
+
+            })
+    }
+
+    const handleBlock = () => {
+        baseAxios.put(`/api/residences/${id}`, { acceptanceStatus: "blocked", feedBack: "Blocked by admin" },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${token}`,
+                },
+            }
+        )
+            .then((res) => {
+                navigate(`/residence`)
+                toast.success("Blocked successfully");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.message);
+                console.log(error);
+                if (
+                    "You are not authorised to sign in now" === error.response.data.message || "Error authorization" === error.response.data.message
+                ) {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("yourInfo");
+                }
+
+            })
+    }
+
 
 
     return (
@@ -37,7 +101,7 @@ function ResidenceDetails() {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div className="py-6 px-4 md:px-6 xl:px-7.5">
                     <Breadcrumb pageName="Residence Details" />
-                    <div className='text-xl md:text-2xl  font-extrabold flex items-center '><h1>Name : {data?.residenceName} </h1><span className={`ml-2 mt-2 text-sm text-black ${data?.acceptanceStatus === "pending" && 'bg-meta-6'} ${data?.acceptanceStatus === "accepted" && 'bg-success'} ${data?.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3  dark:text-white`}>{
+                    <div className='text-xl md:text-2xl  font-extrabold flex items-center '><h1> {data?.residenceName} </h1><span className={`ml-2 mt-2 text-sm text-black ${data?.acceptanceStatus === "pending" && 'bg-meta-6'} ${data?.acceptanceStatus === "accepted" && 'bg-success'} ${data?.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3  dark:text-white`}>{
                         data?.acceptanceStatus === "pending" ? "Pending" :
                             data?.acceptanceStatus === "accepted" ? "Accepted" :
                                 data?.acceptanceStatus === "blocked" ? "Blocked" : <></>
@@ -62,9 +126,9 @@ function ResidenceDetails() {
                     <div>Popularity : {data?.popularity}</div>
                     <div>Municipality : {data?.municipality}</div>
                     <div>Quirtier : {data?.quirtier}</div>
-                    <div className='flex'>
-                        Amenities : {data?.amenities?.map((item: any) => (
-                            <div key={item?.translation?.en}> {item?.translation?.en}, </div>
+                    <div className='flex flex-wrap'>
+                        Amenities  :&nbsp;{data?.amenities?.map((item: any) => (
+                            <div key={item?.translation?.en}> {item?.translation?.en},&nbsp;</div>
                         ))}
                     </div>
 
@@ -81,6 +145,10 @@ function ResidenceDetails() {
                         <p>Host Address : {data?.hostId?.address}</p>
                         <p>Host Phone Number : {data?.hostId?.phoneNumber}</p>
                     </div>
+                    <br />
+                    {data?.feedBack && <p className='font-extrabold dark:text-white text-black'>Admin Feedback: <span className='text-meta-1 font-extrabold'>{data?.feedBack}</span></p>}
+
+                    {data?.acceptanceStatus === "pending" ? <div className='flex gap-2 justify-center items-center mt-5'><button onClick={handleAccept} className='bg-meta-3 text-white rounded-md px-5 py-[1.5px]'>Accept</button> <button onClick={handleBlock} className='bg-meta-1 text-white rounded-md px-5 py-[1.5px]'>block</button></div> : data?.acceptanceStatus === "accepted" ? <div className='flex gap-2 justify-center items-center mt-5'> <button onClick={handleBlock} className='bg-meta-1 text-white rounded-md px-5 py-[1.5px]'>block</button></div> : <div className='flex gap-2 justify-center items-center mt-5'><button onClick={handleAccept} className='bg-meta-3 text-white rounded-md px-5 py-[1.5px]'>Accept</button></div>}
 
                 </div>
             </div>

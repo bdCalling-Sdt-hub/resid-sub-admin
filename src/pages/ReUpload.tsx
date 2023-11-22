@@ -1,8 +1,10 @@
-import React from 'react'
+import TableTwo from "../components/TableTwo"
 
 function ReUpload() {
   return (
-    <div>ReUpload</div>
+    <div>
+      <TableTwo title="ReUpload" type="blocked&reUploaded=yes" />
+    </div>
   )
 }
 
