@@ -1,10 +1,10 @@
-import React from 'react'
+
 import TableTwo from '../components/TableTwo'
 
 function Residence() {
   return (
     <div>
-      <TableTwo />
+      <TableTwo title="Residence" type="all" />
     </div>
   )
 }

@@ -1,8 +1,8 @@
-import React from 'react'
+import TableTwo from '../components/TableTwo'
 
 function Accepted() {
   return (
-    <div>Accepted</div>
+    <div><TableTwo title="Accepted" type="accepted" /></div>
   )
 }
 

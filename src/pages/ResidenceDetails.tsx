@@ -31,37 +31,12 @@ function ResidenceDetails() {
     }, []);
 
 
-    // {
-    //     "_id": "65588e3ea9d7157a3e1f1d01",
-
-    // 
-    //     "ratings": 0,
-
-    //     },
-    //     "status": "inactive",
-    //     "category": {
-    //         "translation": {
-    //             "en": "Personal-House",
-    //             "fr": "Maison-personnelle"
-    //         },
-    //         "_id": "654daa60c098fb021e7bb839"
-    //     },
-    //     "isDeleted": false,
-    //     "acceptanceStatus": "pending",
-    //     "createdAt": "2023-11-18T10:13:18.719Z",
-    //     "updatedAt": "2023-11-18T10:13:18.719Z",
-    //     "__v": 0
-    // }
-
-
-
     return (
         <>
 
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div className="py-6 px-4 md:px-6 xl:px-7.5">
                     <Breadcrumb pageName="Residence Details" />
-
                     <div className='text-xl md:text-2xl  font-extrabold flex items-center '><h1>Name : {data?.residenceName} </h1><span className={`ml-2 mt-2 text-sm text-black ${data?.acceptanceStatus === "pending" && 'bg-meta-6'} ${data?.acceptanceStatus === "accepted" && 'bg-success'} ${data?.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3  dark:text-white`}>{
                         data?.acceptanceStatus === "pending" ? "Pending" :
                             data?.acceptanceStatus === "accepted" ? "Accepted" :
@@ -76,11 +51,11 @@ function ResidenceDetails() {
                         ))}
 
                     </div>
-                    <div>Ratings : {data?.ratings || 0.0}</div>
                     <div>Residence About : {data?.aboutResidence}</div>
+                    <div>Ratings : {data?.ratings || 0.0}</div>
                     <div>Daily Amount : ${data?.dailyAmount}</div>
                     <div>Hourly Amount : ${data?.hourlyAmount}</div>
-                    <div>Category : ${data?.category.translation.en}</div>
+                    <div>Category : {data?.category.translation.en}</div>
                     <div>Capacity : {data?.capacity}</div>
                     <div>Beds : {data?.beds}</div>
                     <div>Baths : {data?.baths}</div>
@@ -93,14 +68,14 @@ function ResidenceDetails() {
                         ))}
                     </div>
 
-                    <p className='text-black font-bold'>Owner Information Here:</p>
+                    <p className='text-black dark:text-white font-bold mt-5'>Owner Information:</p>
                     <div>Owner Name : {data?.ownerName}</div>
                     <div>Owner About : {data?.aboutOwner}</div>
                     <div>Address : {data?.address}</div>
                     <div>City : {data?.city}</div>
 
-                    <div className=''>
-                        <p className='text-black font-bold'>Host Information Here:</p>
+                    <div className='mt-5'>
+                        <p className='text-black dark:text-white font-bold'>Host Information:</p>
                         <p>Host Name : {data?.hostId?.fullName}</p>
                         <p>Host Email : {data?.hostId?.email}</p>
                         <p>Host Address : {data?.hostId?.address}</p>

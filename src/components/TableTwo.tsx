@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import baseAxios from '../../Config';
 import { useNavigate } from 'react-router-dom';
-const TableTwo = () => {
+const TableTwo = ({type,title}:any) => {
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>([]);
   let token = localStorage.getItem("token");
@@ -9,7 +9,7 @@ const TableTwo = () => {
   console.log(data);
 
   useEffect(() => {
-    baseAxios.get('/api/residences?acceptanceStatus=all',
+    baseAxios.get(`/api/residences?acceptanceStatus=${type}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const TableTwo = () => {
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="py-6 px-4 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold text-black dark:text-white">
-          Residence List
+          {title} List
         </h4>
       </div>
 

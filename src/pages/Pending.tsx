@@ -1,8 +1,11 @@
-import React from 'react'
+
+import TableTwo from '../components/TableTwo'
 
 function Pending() {
   return (
-    <div>Pending</div>
+    <div>
+    <TableTwo title="Pending" type="pending" />
+  </div>
   )
 }
 

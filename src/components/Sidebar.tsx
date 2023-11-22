@@ -122,6 +122,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Profile --> */}
               <li>
                 <NavLink
+                  to="/accepted"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('accepted') && 'bg-graydark dark:bg-meta-4'
+                    }`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+
+                  Accepted Residence
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/pending"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('pending') && 'bg-graydark dark:bg-meta-4'
                     }`}
@@ -133,6 +146,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Pending Residence
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/re-upload"
@@ -146,19 +160,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Re Upload Residence
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/accepted"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('accepted') && 'bg-graydark dark:bg-meta-4'
-                    }`}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
 
-                  Accepted Residence
-                </NavLink>
-              </li>
               {/* <!-- Menu Item Profile --> */}
 
               {/* <!-- Menu Item Forms --> */}
