@@ -42,8 +42,8 @@ const coreRoutes = [
     component: Tables,
   },
   {
-    path: '/settings',
-    title: 'Settings',
+    path: '/edit-profile',
+    title: 'Edit Profile',
     component: Settings,
   },
   {
