@@ -6,7 +6,7 @@ const TableTwo = ({ type, title }: any) => {
   const [data, setData] = useState<any[]>([]);
   let token = localStorage.getItem("token");
 
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     baseAxios.get(`/api/residences?acceptanceStatus=${type}`,
