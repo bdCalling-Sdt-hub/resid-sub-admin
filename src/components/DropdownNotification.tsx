@@ -38,7 +38,7 @@ const DropdownNotification = () => {
           localStorage.removeItem("yourInfo");
         }
       })
-  }, []);
+  }, [setNotifications]);
 
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const DropdownNotification = () => {
   });
 
 
-  function getTimeAgo(timestamp) {
+  function getTimeAgo(timestamp: any) {
     const now = new Date();
     const date = new Date(timestamp);
 
@@ -103,6 +103,27 @@ const DropdownNotification = () => {
       return "just now";
     }
   }
+
+  const notificationUpdateHandler = (id: string) => {
+    let token = localStorage.getItem("token");
+    baseAxios
+      .patch(
+        `/api/notifications/${id}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        // setModalData(res.data.data);
+        // setIsModalOpen(true);
+        // dispatch(NotificationsData(data));
+      })
+      .catch((err) => console.log(err));
+  };
 
 
   return (
@@ -149,19 +170,24 @@ const DropdownNotification = () => {
         <ul className="flex h-auto flex-col overflow-y-auto">
           {notifications?.allNotification?.map((item: any) => (
             <>
-              <li>
-                <Link
-                  className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-                  to="#"
+              <li
+              className='cursor-pointer'
+                key={item._id}
+                onClick={() => notificationUpdateHandler(item._id)}
+              >
+
+                <div
+                  className={`flex flex-col gap-2.5 border-t ${!item.viewStatus && 'bg-meta-1 text-wi hover:bg-meta-3' }  border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4`}
+            
                 >
                   <p className="text-sm">
-                    <span className="text-black dark:text-white">
+                    <span className={`${!item.viewStatus && 'text-white' } text-black dark:text-white`}>
                       {item?.message}
                     </span>
                   </p>
 
-                  <p className="text-xs">{getTimeAgo(item.createdAt)}</p>
-                </Link>
+                  <p className={`${!item.viewStatus && 'text-white' } text-xs`}>{getTimeAgo(item.createdAt)}</p>
+                </div>
               </li>
             </>
           ))

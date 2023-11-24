@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import baseAxios from '../../Config';
 import { useNavigate } from 'react-router-dom';
-const TableTwo = ({ type, title }: any) => {
+const TableTwo = ({ type, title, setStatusData }: any) => {
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>([]);
   let token = localStorage.getItem("token");
@@ -19,6 +19,9 @@ const TableTwo = ({ type, title }: any) => {
     )
       .then((res) => {
         setData(res.data.data.attributes.residences.data);
+        if (type === "all") {
+          setStatusData(res.data.data.attributes.residences);
+        }
       })
       .catch((error) => {
         console.log(error);
