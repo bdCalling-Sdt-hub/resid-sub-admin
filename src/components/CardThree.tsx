@@ -12,7 +12,7 @@ const CardThree = (statusData: any) => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            {statusData.statusData.count.blocked}
+            {statusData?.statusData?.count?.blocked}
           </h4>
           <span className="text-sm font-medium">Total Blocked Residence</span>
         </div>
