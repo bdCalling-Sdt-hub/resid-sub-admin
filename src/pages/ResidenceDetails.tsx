@@ -73,6 +73,7 @@ function ResidenceDetails() {
     }
 
     const handleBlock = () => {
+        if(!feedback) return toast.error("Please enter your feedback")
         baseAxios.put(`/api/residences/${id}`, { acceptanceStatus: "blocked", feedBack: feedback },
             {
                 headers: {
@@ -120,15 +121,8 @@ function ResidenceDetails() {
                         ))}
 
                     </div>
-                    <div>
-                        <button onClick={onOpenModal}>Open modal</button>
-                        <Modal open={open} onClose={onCloseModal} center>
-                            <div className='p-10 flex flex-col gap-2'>
-                                <input type="text" placeholder='Enter your feedback' value={feedback} onChange={e => setFeedback(e.target.value)} className='border-2 px-3 py-2 border-meta-1' />
-                                <button onClick={handleBlock} className='bg-meta-3 text-white mt-3'>Submit</button>
-                            </div>
-                        </Modal>
-                    </div>
+                 
+                 
                     <div>Residence About : {data?.aboutResidence}</div>
                     <div>Ratings : {data?.ratings || 0.0}</div>
                     <div>Daily Amount : ${data?.dailyAmount}</div>
@@ -163,7 +157,13 @@ function ResidenceDetails() {
                     {data?.feedBack && <p className='font-extrabold dark:text-white text-black'>Admin Feedback: <span className='text-meta-1 font-extrabold'>{data?.feedBack}</span></p>}
 
                     {data?.acceptanceStatus === "pending" ? <div className='flex gap-2 justify-center items-center mt-5'><button onClick={handleAccept} className='bg-meta-3 text-white rounded-md px-5 py-[1.5px]'>Accept</button> <button onClick={e => setOpen(!open)} className='bg-meta-1 text-white rounded-md px-5 py-[1.5px]'>block</button></div> : data?.acceptanceStatus === "accepted" ? <div className='flex gap-2 justify-center items-center mt-5'> <button onClick={e => setOpen(!open)} className='bg-meta-1 text-white rounded-md px-5 py-[1.5px]'>block</button></div> : <div className='flex gap-2 justify-center items-center mt-5'><button onClick={handleAccept} className='bg-meta-3 text-white rounded-md px-5 py-[1.5px]'>Accept</button></div>}
-
+ 
+                    <Modal  open={open} onClose={onCloseModal} center>
+                            <div className='p-10 flex flex-col gap-2'>
+                                <input type="text" placeholder='Enter your feedback' value={feedback} onChange={e => setFeedback(e.target.value)} className='border-2 px-3 py-2 border-meta-1' />
+                                <button onClick={handleBlock} className='bg-meta-3 py-[1px] rounded-md text-white mt-3'>Submit</button>
+                            </div>
+                        </Modal>
                 </div>
             </div>
 
