@@ -7,7 +7,7 @@ const Signin: React.FC = () => {
   const navigate = useNavigate();
 
   const handleForgotPassword = () => {
-    navigate('/forget-password');
+    navigate('/auth/forget-password');
   };
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,8 +17,8 @@ const Signin: React.FC = () => {
         console.log(res);
         if (res.data.data.attributes.role === 'admin') {
           localStorage.setItem('yourInfo', JSON.stringify(res.data.data.attributes));
-          localStorage.setItem("token", res.data.data.token);
-          toast.success(res.data.message);
+          localStorage.setItem("token", res?.data?.data?.token);
+          toast.success(res?.data?.message);
           navigate('/residence');
         } else {
           toast.error('You are not admin');
