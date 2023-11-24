@@ -103,7 +103,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 
               {/* <!-- Menu Item Calendar --> */}
-              <li>
+              <li onClick={() => setSidebarOpen(!sidebarOpen)}>
+
                 <NavLink
                   to="/residence"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('/residence') &&
@@ -120,7 +121,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Calendar --> */}
 
               {/* <!-- Menu Item Profile --> */}
-              <li>
+              <li onClick={() => setSidebarOpen(!sidebarOpen)}>
                 <NavLink
                   to="/accepted"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('accepted') && 'bg-graydark dark:bg-meta-4'
@@ -133,7 +134,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Accepted Residence
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => setSidebarOpen(!sidebarOpen)}>
                 <NavLink
                   to="/pending"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('pending') && 'bg-graydark dark:bg-meta-4'
@@ -147,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 </NavLink>
               </li>
 
-              <li>
+              <li onClick={() => setSidebarOpen(!sidebarOpen)}>
                 <NavLink
                   to="/re-upload"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('re-upload') && 'bg-graydark dark:bg-meta-4'
