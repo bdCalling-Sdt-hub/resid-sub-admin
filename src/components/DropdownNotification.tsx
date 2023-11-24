@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { io } from "socket.io-client";
 import baseAxios from '../../Config';
 import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
 
 const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const userFromLocalStorage = JSON.parse(localStorage.getItem("yourInfo") || '{}');
   const [notifications, setNotifications] = useState([]);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   console.log(notifications);
 
   const trigger = useRef<any>(null);
@@ -104,7 +104,7 @@ const DropdownNotification = () => {
     }
   }
 
-  const notificationUpdateHandler = (id: string) => {
+  const notificationUpdateHandler = (id: string, linkId: string) => {
     let token = localStorage.getItem("token");
     baseAxios
       .patch(
@@ -123,6 +123,9 @@ const DropdownNotification = () => {
         // dispatch(NotificationsData(data));
       })
       .catch((err) => console.log(err));
+
+    navigate(`/residence/${linkId}`)
+    window.location.reload();
   };
 
 
@@ -171,22 +174,22 @@ const DropdownNotification = () => {
           {notifications?.allNotification?.map((item: any) => (
             <>
               <li
-              className='cursor-pointer'
+                className='cursor-pointer'
                 key={item._id}
-                onClick={() => notificationUpdateHandler(item._id)}
+                onClick={() => notificationUpdateHandler(item._id, item.linkId)}
               >
 
                 <div
-                  className={`flex flex-col gap-2.5 border-t ${!item.viewStatus && 'bg-meta-1 text-wi hover:bg-meta-3' }  border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4`}
-            
+                  className={`flex flex-col gap-2.5 border-t ${!item.viewStatus && 'bg-meta-1 text-wi hover:bg-meta-3'}  border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4`}
+
                 >
                   <p className="text-sm">
-                    <span className={`${!item.viewStatus && 'text-white' } text-black dark:text-white`}>
+                    <span className={`${!item.viewStatus && 'text-white'} text-black dark:text-white`}>
                       {item?.message}
                     </span>
                   </p>
 
-                  <p className={`${!item.viewStatus && 'text-white' } text-xs`}>{getTimeAgo(item.createdAt)}</p>
+                  <p className={`${!item.viewStatus && 'text-white'} text-xs`}>{getTimeAgo(item.createdAt)}</p>
                 </div>
               </li>
             </>
