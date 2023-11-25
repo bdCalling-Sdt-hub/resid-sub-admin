@@ -107,7 +107,7 @@ const Profile = () => {
                 Phone Number : {userData.phoneNumber}
               </div>
               <div>
-                Date of birth : {userData.dateOfBirth}
+                Date of birth : {new Date(userData.dateOfBirth).toLocaleDateString()}
               </div>
               <div>
                 Join Date : {getTimeAgo(userData.createdAt)}

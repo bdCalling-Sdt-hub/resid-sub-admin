@@ -43,7 +43,7 @@ const DropdownNotification = () => {
 
   useEffect(() => {
     // Connect to server using socket.io-client
-    var socket = io("http://192.168.10.18:3000");
+    var socket = io("http://159.65.18.179:3000");
 
     socket.on("connect", () => {
       // Emit events or listen for events here
