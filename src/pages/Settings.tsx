@@ -111,7 +111,7 @@ const Settings = () => {
                     <form action="#">
                       <div className="mb-4 flex items-center gap-3">
                         <div className="h-14 w-14 rounded-full">
-                          <img src={userData?.image?.publicFileUrl} alt="User" />
+                          <img src={!image?(userData?.image?.publicFileUrl):URL.createObjectURL(image)} alt="User" />
                         </div>
                         <div>
                           <span className="mb-1.5 text-black dark:text-white">
@@ -132,6 +132,7 @@ const Settings = () => {
                           accept="image/*"
                           className="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none"
                           onChange={(e) => setImage(e.target.files[0])}
+                          defaultValue={image}
                         />
                         <div className="flex flex-col items-center justify-center space-y-3">
                           <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-white dark:border-strokedark dark:bg-boxdark">
