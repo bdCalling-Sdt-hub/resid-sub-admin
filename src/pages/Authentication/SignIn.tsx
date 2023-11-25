@@ -47,14 +47,14 @@ const Signin: React.FC = () => {
         {/* Right: Login Form */}
         <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
           <h1 className="flex justify-center text-[44px] mb-10 font-semibold">
-            Welcome
+          Bienvenue
           </h1>
-          <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
+          <h1 className="text-2xl font-semibold mb-4">Se connecter</h1>
           <form onSubmit={handleLogin}>
             {/* Username Input */}
             <div className="mb-4">
               <label htmlFor="email" className="block text-gray-600">
-                Email
+                E-mail
               </label>
               <input
                 type="text"
@@ -67,7 +67,7 @@ const Signin: React.FC = () => {
             {/* Password Input */}
             <div className="mb-4">
               <label htmlFor="password" className="block text-gray-600">
-                Password
+              Mot de passe
               </label>
               <input
                 type="password"
@@ -81,7 +81,7 @@ const Signin: React.FC = () => {
             {/* Forgot Password Link */}
             <div className="mb-6 font-medium font-['Montserrat'] text-primary">
               <p onClick={handleForgotPassword} className="cursor-pointer">
-                Forgot Password?
+              Mot de passe oublié?
               </p>
             </div>
             {/* Login Button */}
@@ -89,7 +89,7 @@ const Signin: React.FC = () => {
               type="submit"
               className="bg-primary text-white font-semibold rounded-md flex justify-center mx-auto px-[100px] py-3"
             >
-              Login
+              Se connecter
             </button>
           </form>
         </div>

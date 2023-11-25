@@ -12,7 +12,7 @@ const CardOne = (statusData: any) => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {statusData?.statusData?.count?.accepted}
           </h4>
-          <span className="text-sm font-medium">Total Accepted Residence</span>
+          <span className="text-sm font-medium">Total Résidence Acceptée</span>
         </div>
 
         <span className="flex items-center gap-1 text-sm font-medium text-meta-3">

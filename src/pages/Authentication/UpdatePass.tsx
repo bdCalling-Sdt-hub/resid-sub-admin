@@ -54,15 +54,15 @@ function UpdatePass() {
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                         </svg>
 
-                        Sign In
+                        Se connecter
                     </h1>
-                    <h1 className="text-2xl font-semibold mb-4">Update Password</h1>
-                    <p className="mb-5">Enter your new password here</p>
+                    <h1 className="text-2xl font-semibold mb-4">Mettre à jour le mot de passe</h1>
+                    <p className="mb-5">Entrez votre nouveau mot de passe ici</p>
                     <form onSubmit={handleUpdatePassword}>
                         {/* Password Input */}
                         <div className="mb-4">
                             <label htmlFor="password" className="block text-gray-600">
-                                New Password
+                            Nouveau mot de passe
                             </label>
                             <input
                                 type="password"
@@ -75,7 +75,7 @@ function UpdatePass() {
                         {/* Password Input */}
                         <div className="mb-4">
                             <label htmlFor="confirmPassword" className="block text-gray-600">
-                                Confirm Password
+                            Confirmez le mot de passe
                             </label>
                             <input
                                 type="password"
@@ -89,7 +89,7 @@ function UpdatePass() {
                             type="submit"
                             className="bg-primary text-white font-semibold rounded-md flex justify-center mx-auto px-[100px] py-3"
                         >
-                            Update
+                            Mise à jour
                         </button>
                     </form>
                 </div>

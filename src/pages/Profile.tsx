@@ -34,7 +34,7 @@ const Profile = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Profile" />
+      <Breadcrumb pageName="Profil" />
 
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="relative z-20 h-35 md:h-65">
@@ -49,7 +49,7 @@ const Profile = () => {
               className="flex cursor-pointer items-center justify-center gap-2 rounded bg-primary py-1 px-2 text-sm font-medium text-white hover:bg-opacity-80 xsm:px-4"
             >
 
-              <span >Edit Profile</span>
+              <span >Editer le profil</span>
             </label>
           </div>
         </div>
@@ -95,22 +95,22 @@ const Profile = () => {
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
               {userData.fullName}
             </h3>
-            <p className="font-medium">Admin</p>
+            <p className="font-medium">Administrateur</p>
             <div className="mx-auto mt-4.5 mb-5.5  max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
               <div>
-                Email : {userData.email}
+              E-mail : {userData.email}
               </div>
               <div>
-                Address : {userData.address}
+              Adresse : {userData.address}
               </div>
               <div>
-                Phone Number : {userData.phoneNumber}
+              Numéro de téléphone : {userData.phoneNumber}
               </div>
               <div>
-                Date of birth : {new Date(userData.dateOfBirth).toLocaleDateString()}
+              Date de naissance : {new Date(userData.dateOfBirth).toLocaleDateString()}
               </div>
               <div>
-                Join Date : {getTimeAgo(userData.createdAt)}
+              Date d'adhésion : {getTimeAgo(userData.createdAt)}
               </div>
             </div>
 

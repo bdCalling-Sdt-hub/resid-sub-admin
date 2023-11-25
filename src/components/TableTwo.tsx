@@ -38,20 +38,20 @@ const TableTwo = ({ type, title, setStatusData }: any) => {
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="py-6 px-4 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold text-black dark:text-white">
-          {title} List
+          {title} Liste
         </h4>
       </div>
 
       <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-4 flex items-center">
-          <p className="font-medium">Name</p>
+          <p className="font-medium">Nom</p>
         </div>
         <div className="col-span-3 hidden items-center sm:flex">
-          <p className="font-medium">status</p>
+          <p className="font-medium">Statut</p>
         </div>
 
         <div className="col-span-1 flex items-center">
-          <p className="font-medium">Details</p>
+          <p className="font-medium">Détails</p>
         </div>
       </div>
 
@@ -69,9 +69,9 @@ const TableTwo = ({ type, title, setStatusData }: any) => {
           </div>
           <div className="col-span-3 hidden items-center sm:flex">
             <p className={`text-sm text-black ${item.acceptanceStatus === "pending" && 'bg-meta-6'} ${item.acceptanceStatus === "accepted" && 'bg-success'} ${item.acceptanceStatus === "blocked" && 'bg-meta-1'}  p-[2px] rounded-xl px-3  dark:text-white`}>{
-              item.acceptanceStatus === "pending" ? "Pending" :
-                item.acceptanceStatus === "accepted" ? "Accepted" :
-                  item.acceptanceStatus === "blocked" ? "Blocked" : <></>
+              item.acceptanceStatus === "pending" ? "En attente" :
+                item.acceptanceStatus === "accepted" ? "Accepté" :
+                  item.acceptanceStatus === "blocked" ? "Bloqué" : <></>
             }</p>
           </div>
 

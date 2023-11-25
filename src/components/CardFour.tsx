@@ -13,7 +13,7 @@ const CardFour = (statusData: any) => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {statusData?.statusData?.data?.length}
           </h4>
-          <span className="text-sm font-medium">Total Residence</span>
+          <span className="text-sm font-medium">Résidence totale</span>
         </div>
 
         <span className="flex items-center gap-1 text-sm font-medium text-meta-5">

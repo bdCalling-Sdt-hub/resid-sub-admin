@@ -92,15 +92,15 @@ const DropdownNotification = () => {
     const yearsAgo = Math.floor(daysAgo / 365);
 
     if (yearsAgo > 0) {
-      return yearsAgo === 1 ? "1 year ago" : `${yearsAgo} years ago`;
+      return yearsAgo === 1 ? "1 il y'a un an" : `${yearsAgo} il y a des années`;
     } else if (daysAgo > 0) {
-      return daysAgo === 1 ? "1 day ago" : `${daysAgo} days ago`;
+      return daysAgo === 1 ? "1 il y a un jour" : `${daysAgo} il y a quelques jours`;
     } else if (hoursAgo > 0) {
-      return hoursAgo === 1 ? "1 hour ago" : `${hoursAgo} hours ago`;
+      return hoursAgo === 1 ? "1 Une heure avant" : `${hoursAgo} il y a des heures`;
     } else if (minutesAgo > 0) {
-      return minutesAgo === 1 ? "1 minute ago" : `${minutesAgo} minutes ago`;
+      return minutesAgo === 1 ? "1 il y a une minute" : `${minutesAgo} il y a quelques minutes`;
     } else {
-      return "just now";
+      return "tout à l' heure";
     }
   }
 

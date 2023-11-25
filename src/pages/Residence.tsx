@@ -17,7 +17,7 @@ function Residence() {
         <CardTwo statusData={statusData} />
         <CardThree statusData={statusData} />
       </div>
-      <TableTwo setStatusData={setStatusData} title="Residence" type="all" />
+      <TableTwo setStatusData={setStatusData} title="Résidence" type="all" />
     </div>
   )
 }

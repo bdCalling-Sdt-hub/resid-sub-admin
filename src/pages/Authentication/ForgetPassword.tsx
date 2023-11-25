@@ -44,15 +44,15 @@ function ForgetPassword() {
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                         </svg>
 
-                        Sign In
+                        Se connecter
                     </h1>
-                    <h1 className="text-2xl font-semibold mb-4">Forget Password</h1>
-                    <p className="mb-5">Enter the email address associated with your account. We'll send you an OTP to your email.</p>
+                    <h1 className="text-2xl font-semibold mb-4">Mot de passe oublié</h1>
+                    <p className="mb-5">Saisissez l'adresse e-mail associée à votre compte. Nous vous enverrons un OTP à votre adresse e-mail.</p>
                     <form onSubmit={handleForgetPassword}>
                         {/* Username Input */}
                         <div className="mb-4">
                             <label htmlFor="email" className="block text-gray-600">
-                                Email
+                                E-mail
                             </label>
                             <input
                                 type="text"
@@ -66,7 +66,7 @@ function ForgetPassword() {
                             type="submit"
                             className="bg-primary text-white font-semibold rounded-md flex justify-center mx-auto px-[100px] py-3"
                         >
-                            Send OTP
+                            Envoyer OTP
                         </button>
                     </form>
                 </div>

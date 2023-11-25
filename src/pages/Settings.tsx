@@ -91,18 +91,18 @@ const Settings = () => {
     <>
       <div className="mx-auto max-w-270">
 
-        <Breadcrumb pageName="Profile Edit" />
+        <Breadcrumb pageName="Modifier le profil" />
         <button onClick={e => navigate('/profile')} className='bg-primary flex justify-center items-center py-1 mb-2 gap-1 rounded-md px-2 text-white'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
-          <span> Back to profile</span></button>
+          <span> Retour au profil</span></button>
 
         <div className="grid grid-cols-5 gap-8">
           <div className="col-span-5 xl:col-span-3">
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                Informations personnelles
                 </h3>
               </div>
               <div className="p-7">
@@ -115,7 +115,7 @@ const Settings = () => {
                         </div>
                         <div>
                           <span className="mb-1.5 text-black dark:text-white">
-                            Edit your photo
+                          Modifiez votre photo
                           </span>
                           <span className="flex gap-2.5">
 
@@ -164,10 +164,10 @@ const Settings = () => {
                             </svg>
                           </span>
                           <p>
-                            <span className="text-primary">Click to upload</span> or
-                            drag and drop
+                            <span className="text-primary">Cliquez pour télécharger</span> ou
+                             glisser déposer
                           </p>
-                          <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
+                          <p className="mt-1.5">PNG or JPG</p>
                           <p>(max, 800 X 800px)</p>
                         </div>
                       </div>
@@ -181,7 +181,7 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="fullName"
                       >
-                        Full Name
+                        Nom et prénom
                       </label>
                       <div className="relative">
                         <span className="absolute left-4.5 top-4">
@@ -226,7 +226,7 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="phoneNumber"
                       >
-                        Phone Number
+                        Numéro de téléphone
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -245,7 +245,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="emailAddress"
                     >
-                      Email Address
+                      Adresse e-mail
                     </label>
                     <div className="relative">
                       <span className="absolute left-4.5 top-4">
@@ -290,7 +290,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="dataOfBirth"
                     >
-                      Date of Birth
+                      Date de naissance
                     </label>
                     <input
                       className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -306,7 +306,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="address"
                     >
-                      Address
+                      Adresse
                     </label>
                     <input
                       className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -325,14 +325,14 @@ const Settings = () => {
                       className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
                       type="submit"
                     >
-                      Cancel
+                      Annuler
                     </button>
                     <button
                       className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
                       type="submit"
                       onClick={handleSubmited}
                     >
-                      Save
+                      Sauvegarder
                     </button>
                   </div>
                 </form>
