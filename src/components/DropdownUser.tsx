@@ -112,7 +112,7 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Profile
+              Mon profil
             </Link>
           </li>
         </ul>
@@ -134,7 +134,7 @@ const DropdownUser = () => {
               fill=""
             />
           </svg>
-          Log Out
+          Se déconnecter
         </button>
       </div>
       {/* <!-- Dropdown End --> */}
