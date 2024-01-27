@@ -21,7 +21,7 @@ const Signin: React.FC = () => {
           toast.success(res?.data?.message);
           navigate('/residence');
         } else {
-          toast.error('You are not admin');
+          toast.error("Vous n'êtes pas administrateur");
         }
       })
       .catch((err) => {

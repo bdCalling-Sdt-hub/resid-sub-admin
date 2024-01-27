@@ -42,7 +42,7 @@ const DropdownUser = () => {
     localStorage.removeItem('yourInfo');
     localStorage.removeItem('token');
     navigate('/auth/signin');
-    toast.success("Logout Success");
+    toast.success("Déconnexion réussie");
   }
 
   return (

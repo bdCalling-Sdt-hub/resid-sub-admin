@@ -57,7 +57,7 @@ function ResidenceDetails() {
         )
             .then((res) => {
                 navigate(`/residence`)
-                toast.success("Accepted successfully");
+                toast.success("Résidence acceptée avec succès");
             })
             .catch((error) => {
                 toast.error(error.response.data.message);
@@ -84,7 +84,7 @@ function ResidenceDetails() {
         )
             .then((res) => {
                 navigate(`/residence`)
-                toast.success("Blocked successfully");
+                toast.success("Résidence bloquée avec succès");
             })
             .catch((error) => {
                 toast.error(error.response.data.message);
@@ -125,8 +125,8 @@ function ResidenceDetails() {
 
                     <div>Résidence À propos : {data?.aboutResidence}</div>
                     <div>Notes : {data?.ratings || 0.0}</div>
-                    <div>Montant quotidien : ${data?.dailyAmount}</div>
-                    <div>Montant horaire : ${data?.hourlyAmount}</div>
+                    <div>Montant quotidien : {data?.dailyAmount} FCFA</div>
+                    <div>Montant horaire : {data?.hourlyAmount} FCFA</div>
                     <div>Catégorie : {data?.category?.translation?.en}</div>
                     <div>Capacité : {data?.capacity}</div>
                     <div>Des lits : {data?.beds}</div>

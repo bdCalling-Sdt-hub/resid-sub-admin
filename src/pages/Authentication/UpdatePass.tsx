@@ -12,7 +12,7 @@ function UpdatePass() {
         e.preventDefault();
         // here check password and confirm password are same or not and give toast message
         if (e.currentTarget.password.value !== e.currentTarget.confirmPassword.value) {
-            toast.error("Password and Confirm Password are not same");
+            toast.error("Le mot de passe et la confirmation du mot de passe ne sont pas identiques");
 
         } else {
             baseAxios.post('/api/users/reset/password', { email, password: e.currentTarget.password.value })
